@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body>
+
+<div  class="container">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <form id="entryForm" method="post" th:action="@{/entry/create}" th:object="${entry}">
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="month" type="month" placeholder="Enter your month..." th:field="*{month}" data-sb-validations="required, month" />
+                        <label for="month">Month</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">Month is required.</div>
+                    </div>
+                    <!-- Email address input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="year" type="text" placeholder="Enter your year" th:field="*{year}" data-sb-validations="required,year" />
+                        <label for="year">Year</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">year is required.</div>
+                    </div>
+
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                            To activate this form, sign up at
+                            <br />
+                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
+                    </div>
+
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <!-- Submit Button-->
+                    <button class="btn btn-primary btn-xl " id="submitButton" type="submit">Send</button>
+                </form>
+
+            </div>
+        </div>
+
+
+    </main>
+</div>
+
+</body>
+</html>

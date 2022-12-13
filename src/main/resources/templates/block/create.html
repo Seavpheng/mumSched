@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body>
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-xl-7">
+
+        <form id="blockForm" method="post" th:action="@{/blocks/create}" th:object="${block}">
+
+            <div class="form-floating mb-3">
+                <input class="form-control" id="name" type="text" placeholder="Enter your name..." th:field="*{name}" data-sb-validations="required, name" />
+                <label for="name">Name</label>
+                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+            </div>
+
+            <div class="form-floating mb-3">
+                <label for="isActive">Is Active</label>
+                <input id="isActive" name="isActive" type="checkbox" th:field="*{active}"   />
+<!--                <input type="text" value="1" name="isActive"   th:value="*{isActive}"/>-->
+            </div>
+
+            <div class="d-none" id="submitSuccessMessage">
+                <div class="text-center mb-3">
+                    <div class="fw-bolder">Form submission successful!</div>
+                    To activate this form, sign up at
+                    <br />
+                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                </div>
+            </div>
+
+            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+            <!-- Submit Button-->
+            <button class="btn btn-primary btn-xl " id="submitButton" type="submit">Send</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

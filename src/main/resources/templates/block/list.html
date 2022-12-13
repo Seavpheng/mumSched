@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#page-top">MUM</a>
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/blocks/create">New Block</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Back</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div  class="container">
+    <main role="main" class="pb-3">
+
+        <table class="table table-responsive table-striped">
+            <thead>
+            <tr>
+                <th>Block</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="block : ${blocks }">
+                <td th:text="${block.getName()}"/>
+                <td> <a th:href="@{/blocks/edit/{id}(id=${block.getId()})}"><button class="btn-sm btn-info">Edit </button> </a>
+                    <a th:href="@{/blocks/delete/{id}(id=${block.getId()})}"><button class="btn-sm btn-danger">Delete </button> </a></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </main>
+</div>
+
+</body>
+</html>

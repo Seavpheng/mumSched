@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body>
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <h1>New Course</h1>
+        <div class="row">
+            <div class="col-md-4">
+
+                <form id="courseForm" method="post" th:action="@{/courses/create}" th:object="${course}">
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="courseName" type="text" placeholder="Enter your Course..." th:field="*{courseName}" data-sb-validations="required" />
+                        <label for="courseName">Course Name</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">Course Name is required.</div>
+                    </div>
+
+                    <button class="btn btn-primary btn-xl " id="submitButton" type="submit">Create</button>
+                </form>
+            </div>
+        </div>
+
+
+    </main>
+</div>
+</body>
+</html>
+
