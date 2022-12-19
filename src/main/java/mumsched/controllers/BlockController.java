@@ -20,7 +20,6 @@ public class BlockController {
     @GetMapping("/list")
     public ModelAndView getList()
     {
-        System.out.println("This is block");
         ModelAndView mav = new ModelAndView("block/list");
         mav.addObject("blocks", blockService.getBlocks());
 
@@ -39,12 +38,7 @@ public class BlockController {
 
     @PostMapping("/create")
     public ModelAndView create(Block block){
-        System.out.println(block.toString());
         blockService.Save(block);
-
-//        ModelAndView mav =new ModelAndView("block/create");
-//        mav.addObject(block);
-
         return getList();
     }
 

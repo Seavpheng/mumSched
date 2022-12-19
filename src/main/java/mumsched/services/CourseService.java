@@ -2,6 +2,7 @@ package mumsched.services;
 
 import mumsched.domain.Course;
 import mumsched.repositories.CourseRepository;
+import mumsched.repositories.CourseScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,9 @@ public class CourseService {
 
     @Autowired
     private CourseRepository courseRepository;
+
+    @Autowired
+    private CourseScheduleRepository courseScheduleRepository;
 
     public ResponseEntity Save(Course course){
         Course obj = Course.createCourse(course.getCourseName());
@@ -47,16 +51,23 @@ public class CourseService {
         return true;
     }
 
-    public void delete (Long courseId){
-        try {
+    public ResponseEntity delete (Long courseId){
+        try
+        {
+            if(courseScheduleRepository.CheckCourseInUsed(courseId)){
+                return ResponseEntity.status(HttpStatus.CONFLICT).body("Course cannot be deleted because it is in used");
+            }
+
             Course course = getCourseById(courseId);
             courseRepository.delete(course);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Delete successfully");
         }catch(Exception ex){
             throw  ex;
         }
+
     }
 
-    public Iterable<Course> getAll(){
+    public Iterable<Course> getCourses(){
         return courseRepository.findAll();
     }
 }

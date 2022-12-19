@@ -15,8 +15,8 @@
                 <form id="courseForm" method="post" th:action="@{/courses/edit}" th:object="${course}">
                     <!-- Name input-->
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="id" type="hidden" th:field="*{id}"  />
-                        <input class="form-control" id="courseName" type="text" placeholder="Enter your Course..." th:field="*{courseName}" data-sb-validations="required" />
+                        <input class="form-control" id="id" type="hidden" th:field="${id}"  />
+                        <input class="form-control" id="courseName" type="text" placeholder="Enter your Course..." th:field="S{courseName}" data-sb-validations="required" />
                         <label for="courseName">Course Name</label>
                         <div class="invalid-feedback" data-sb-feedback="name:required">Course Name is required.</div>
                     </div>

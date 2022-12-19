@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CourseRepository extends CrudRepository<Course, Integer>{
-    //List<Course> getCourses();
+
     Course findCourseById(Long id);
 
     boolean existsCourseByCourseName(String courseName);

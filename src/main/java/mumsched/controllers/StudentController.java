@@ -45,16 +45,18 @@ public class StudentController {
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Long studentId){
         ModelAndView mav = new ModelAndView("student/edit");
+
+        System.out.println( studentService.getStudent(studentId));
         mav.addObject("student", studentService.getStudent(studentId));
         return mav; //"student/edit";
     }
 
     @PostMapping("/edit")
     public ModelAndView edit(Student student){
+        System.out.println(student.getId());
         studentService.Save(student);
-        ModelAndView mav = new ModelAndView("student/edit");
-        mav.addObject("student", studentService.getStudent(student.getId()));
-        return mav; //"student/edit";
+
+        return getStudentList(); //"student/edit";
     }
 
 

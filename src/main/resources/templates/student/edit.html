@@ -10,13 +10,13 @@
 <div class="row">
     <div class="col-md-4">
         <h1>Update Student</h1>
-        <form id="studentForm"   th:object="${student}">
+        <form id="studentForm" method="post" th:action="@{/students/edit}" th:object="${student}">
             <!-- Name input-->
             <div class="form-floating mb-3">
-                <input class="form-control" id="id" type="hidden" th:field="*{id}"   />
-                <input class="form-control" id="name" type="text" placeholder="Enter your firstname..." th:field="*{firstName}" data-sb-validations="required"  />
-                <label for="name">Firstname</label>
-                <div class="invalid-feedback" data-sb-feedback="name:required">Firstname is required.</div>
+                <input class="form-control" id="id" type="text" th:field="*{id}" />
+                <input class="form-control" id="firstname" type="text" placeholder="Enter your firstname..." th:field="*{firstName}" data-sb-validations="required"  />
+                <label for="firstName">firstName</label>
+                <div class="invalid-feedback" data-sb-feedback="firstName:required">Firstname is required.</div>
             </div>
             <!-- Email address input-->
             <div class="form-floating mb-3">
