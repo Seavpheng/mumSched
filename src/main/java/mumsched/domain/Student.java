@@ -18,9 +18,7 @@ public class Student extends Person {
         super();
     }
 
-    public String getFullName(){
-        return this.getFirstName() + " "+ this.getLastName();
-    }
+
 
     public Long getId(){
         return this.id;
