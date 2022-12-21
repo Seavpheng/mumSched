@@ -27,17 +27,19 @@ public class BlockService {
     }
 
     public boolean update(Block block) {
+        boolean result = false;
         try {
             Block updateBlock =  blockRepository.getBlockById(block.getId());
             updateBlock.setName(block.getName());
             updateBlock.setActive(block.getActive());
             blockRepository.save(updateBlock);
+            result = true;
         }
         catch (Exception e)
         {
             throw e;
         }
-        return true;
+        return result;
     }
 
     public void delete (Long blockId){

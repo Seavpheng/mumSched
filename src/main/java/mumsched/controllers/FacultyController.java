@@ -23,7 +23,10 @@ public class FacultyController {
 
     @GetMapping("/list")
     public ModelAndView getFacultyList(){
+        System.out.print( facultyService.getAll());
         ModelAndView mav = new ModelAndView("faculty/list");
+
+
         mav.addObject("faculties", facultyService.getAll());
         return mav;
     }

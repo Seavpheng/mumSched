@@ -10,10 +10,10 @@ public class Course {
     private Long id;
     @Column
     private String courseName;
-//    @Column
-//    private boolean isActive;
+    @Column
+    private boolean isActive;
 
-    public Course(){  }
+    public Course(){ }
 
     private Course(String courseName){
         this.courseName = courseName;
@@ -22,7 +22,6 @@ public class Course {
     public static Course createCourse(String courseName){
         return new Course(courseName);
     }
-
 
     public Long getId(){
         return this.id;
@@ -40,13 +39,13 @@ public class Course {
         this.courseName = courseName;
     }
 
-//    public boolean isActive() {
-//        return isActive;
-//    }
-//
-//    public void setActive(boolean active) {
-//        isActive = active;
-//    }
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 
     public String toString(){
         return "Course {" +

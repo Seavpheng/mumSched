@@ -10,15 +10,18 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" >
     <div class="container-fluid">
-        <a class="navbar-brand" href="#page-top">MUM</a>
+        <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
         <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 
+            <i class="fas fa-bars"></i>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/courses/create">New Course</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Back</a></li>
+
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/courses/list">Back</a></li>
+                <!--                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>-->
+                <!--                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Course</a></li>-->
+
             </ul>
         </div>
     </div>
@@ -27,21 +30,8 @@
 <div  class="container">
     <main role="main" class="pb-3">
 
-        <table class="table table-responsive table-striped">
-            <thead>
-            <tr>
-                <th>Course Name</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="course : ${courses }">
-                <td th:text="${course.getCourseName()}"/>
-                <td> <a th:href="@{/courses/edit/{id}(id=${course.getId()})}"><button class="btn-sm btn-info">Edit </button> </a>
-                    <a th:href="@{/courses/delete/{id}(id=${course.getId()})}"><button class="btn-sm btn-danger">Delete </button> </a></td>
-            </tr>
-            </tbody>
-        </table>
+        <h4>Unable to delete because the course is in used</h4>
+
     </main>
 </div>
 

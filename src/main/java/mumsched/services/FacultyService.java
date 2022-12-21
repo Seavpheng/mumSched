@@ -1,6 +1,7 @@
 package mumsched.services;
 
 import mumsched.domain.Faculty;
+import mumsched.domain.Student;
 import mumsched.repositories.FacultyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

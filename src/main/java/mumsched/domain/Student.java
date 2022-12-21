@@ -10,18 +10,27 @@ public class Student extends Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Student(String firstName, String lastName){
-        super(firstName, lastName);
-    }
-
     public Student() {
         super();
     }
 
-
+    public Student(String firstName, String lastName){
+        super(firstName, lastName);
+    }
 
     public Long getId(){
         return this.id;
+    }
+
+    public void setId(Long id){
+        this.id = id;
+    }
+
+    public String toString(){
+        return "Student : {" + this.id + "," +
+                this.getFullName() +" }";
+
+
     }
 
 

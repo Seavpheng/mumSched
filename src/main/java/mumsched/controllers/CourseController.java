@@ -53,13 +53,17 @@ public class CourseController {
     @GetMapping("/list")
     public ModelAndView getAll(){
         ModelAndView mav = new ModelAndView("course/list");
-        mav.addObject("courses",  courseService.getAll());
+        mav.addObject("courses",  courseService.getCourses());
         return mav;
     }
 
     @GetMapping("/delete/{id}")
     public ModelAndView delete(@PathVariable("id") Long courseId ){
-        courseService.delete(courseId);
+        ResponseEntity response = courseService.delete(courseId);
+        if(response.getStatusCode().is4xxClientError()){
+           ModelAndView mav = new ModelAndView("course_schedule/delete");
+           return mav;
+        }
         return getAll();
     }
 
